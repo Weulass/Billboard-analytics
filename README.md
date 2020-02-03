@@ -30,22 +30,22 @@ We believe that the project could be very useful for music producers, labels and
 
 Our data originates from various sources. We leveraged and aggregated data from Billboard, Spotify, RIAA and Google Trends.
 
-### 1) Data Sources <a name="data-sources"></a>
-#### A) Billboard <a name="billboard"></a>
+### Data Sources <a name="data-sources"></a>
+#### &nbsp;&nbsp;&nbsp;&nbsp;A) Billboard <a name="billboard"></a>
 
 Leveraging the &quot;Billboard&quot; library,  we were able to gather the rank of each song for each week for which the Billboard was released since March 21st, 1998.
 
-#### B) Spotify <a name="spotify"></a>
+#### &nbsp;&nbsp;&nbsp;&nbsp;B) Spotify <a name="spotify"></a>
 
 Spotify has more than 100 million subscribers as of Q1 2019 and contains one of the most comprehensive music libraries in the world. Luckily, they also provide very broad access to their data through a friendly Web API. After registering to the Web API, we used the Spotify library2 to find the spotify-related information for a given song. Using this API, we find all the information related to the song itself: some &quot;intrinsic&quot; data (i.e. length of the song, danceability, tempo, etc.) but also numerous &quot;extrinsic&quot; features (i.e. album type, release date, etc.).
 
-#### C) The Recording Industry Association of America (RIAA) <a name="riaa"></a>
+#### &nbsp;&nbsp;&nbsp;&nbsp;C) The Recording Industry Association of America (RIAA) <a name="riaa"></a>
 
 The RIAA has honored the best music records through Gold &amp; Platinum Awards since 1958. Gold and platinum awards are given depending on sales and streaming figures and hence are another indication of a song&#39;s success, or an artist&#39;s popularity.
 
 However, the RIAA does not provide an easy access to its data or an API. To get the data, we had to use Selenium and simulate a &quot;human browser&quot; for every artist. Interacting with the page through the HTML/Javascript was challenging. The process itself was also time-consuming (requiring more than 20 hours of runtime) and the data was in a messier format but we were able to scrape awards data for all the artists in our dataset.
 
-#### D) Google Trends <a name="trends"></a>
+#### &nbsp;&nbsp;&nbsp;&nbsp;D) Google Trends <a name="trends"></a>
 
 Google Trends analyzes the popularity of top search queries in Google Search across various regions and languages. We use a library to scrape Google Trends and look at the average popularity of an artist three months prior to the release of the song. Unfortunately, Google Trends only contains data following 01/01/2004.
 
@@ -160,13 +160,15 @@ Through our analysis, we have been able to somewhat improve the prediction on th
 5. Follow the instructions and run &quot;Aggregating.ipynb&quot; to merge all the datasets together
 6. Follow the instructions and run &quot;google\_trend\_acquire.ipynb&quot; to get google trend for the songs, then run &quot;google\_trend\_merge.ipynb&quot; to merge with the main aggregated dataset.
 
-To run models:
+**To run models:**
 
 1. Run &quot;Logistic Regression.ipynb&quot; to run a logistic regression model and assess the results
 2. Run &quot;Random Forest.ipynb&quot; to run a random forest model and assess the results
 3. Run &quot;boosting (LightGBM).ipynb&quot; to run a boosting model and assess the results
 4. Run &quot;NeuralNetworks.ipynb&quot; to run a neural network model and assess the results
 5. Run &quot;Ordinal Regression.ipynb&quot; to run a boosting model and assess the results
+
+**Files:**
 
 - Visualizations are available in &quot;Visualizations.ipynb&quot;
 
