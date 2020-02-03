@@ -1,37 +1,55 @@
 # Final Project Report - IND ENG 242 - Predicting a Song Performance in the Billboard
-###### *Ilias Miraoui, Youssef Lazrak, Owen Liu, Sophie Pealat, Jacques-Olivier Weulassagou*
+#### *Ilias Miraoui, Youssef Lazrak, Owen Liu, Sophie Pealat, Jacques-Olivier Weulassagou*
 
 
-## Introduction
+_**[Introduction](#introduction)**_
+_**[I - Data Processing](#data-processing)**_
+&nbsp;&nbsp;&nbsp;&nbsp;_**[Data Sources](#data-sources)**_
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**[Billboard](#billboard)**_
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**[Spotify](#spotify)**_
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**[The Recording Industry Association of America (RIAA)](#riaa)**_
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**[Google Trends](#trends)**_
+&nbsp;&nbsp;&nbsp;&nbsp;_**[Some Additional Challenges](#challenges)**_
+&nbsp;&nbsp;&nbsp;&nbsp;_**[Feature Engineering and Train/Test Split](#feature)**_
+_**[II - Models & Results](#models)**_
+_**[III - Limitations & Potential Improvements](#limitations)**_
+_**[Conclusion](#conclusion)**_
+_**[Appendix](#appendix)**_
+_**[Appendix 1: Features Tables](#appendix1)**_
+_**[Appendix 2: Model Results](#appendix2)**_
+_**[Appendix 3: Visualizations](#appendix3)**_
+_**[Appendix 4: Reproducing the Code](#appendix4)**_	
+
+## Introduction <a name="introduction"></a>
 
 In this project, we attempt to predict whether or not a song in the hot 100 Billboard will reach the top 10. Billboard kept a record of music sales and airplays of singles since the 1940&#39;s. It is the most consistent and trusted source of music rankings and could thus be very informative. Through this endeavor, we intend to focus on &quot;external&quot; factors (music label, search trends,etc.) in addition to &quot;internal&quot; details on the song itself (length, danceability, energy, etc.) to make such a prediction. There have been a few projects leveraging the &quot;internal&quot; aspects of the song to predict whether or not the song would appear in the hot 100 Billboard charts at some point. However, our analysis goes deeper as it takes into account additional &quot;external&quot; features such as the ones we mentioned previously and attempts to predict the outperformers among the Billboard-featured songs.
 
 We believe that the project could be very useful for music producers, labels and artists. For instance, with the help of the prediction, artists could gain inferential insights on factors that affect the popularity of hit songs. The prediction could also help labels manage the lifecycle of music pieces considering the popularity to maximize the value of inventory and adjust advertising accurately. Such a prediction could also help event planners in selecting artists before their songs have reached the top of the Billboard and help allow them to create events better tailored to the current trends and at a lower cost.
 
-## I - Data Processing
+## I - Data Processing <a name="data-processing"></a>
 
 Our data originates from various sources. We leveraged and aggregated data from Billboard, Spotify, RIAA and Google Trends.
 
-### 1) Data Sources
-#### A) Billboards
+### 1) Data Sources <a name="data-sources"></a>
+#### A) Billboard <a name="billboard"></a>
 
-Leveraging the &quot;billboard&quot; library1,  we were able to gather the rank of each song for each week for which the Billboard was released since March 21st, 1998.
+Leveraging the &quot;Billboard&quot; library,  we were able to gather the rank of each song for each week for which the Billboard was released since March 21st, 1998.
 
-#### B) Spotify
+#### B) Spotify <a name="spotify"></a>
 
 Spotify has more than 100 million subscribers as of Q1 2019 and contains one of the most comprehensive music libraries in the world. Luckily, they also provide very broad access to their data through a friendly Web API. After registering to the Web API, we used the Spotify library2 to find the spotify-related information for a given song. Using this API, we find all the information related to the song itself: some &quot;intrinsic&quot; data (i.e. length of the song, danceability, tempo, etc.) but also numerous &quot;extrinsic&quot; features (i.e. album type, release date, etc.).
 
-#### C) The Recording Industry Association of America (RIAA)
+#### C) The Recording Industry Association of America (RIAA) <a name="riaa"></a>
 
 The RIAA has honored the best music records through Gold &amp; Platinum Awards since 1958. Gold and platinum awards are given depending on sales and streaming figures and hence are another indication of a song&#39;s success, or an artist&#39;s popularity.
 
 However, the RIAA does not provide an easy access to its data or an API. To get the data, we had to use Selenium and simulate a &quot;human browser&quot; for every artist. Interacting with the page through the HTML/Javascript was challenging. The process itself was also time-consuming (requiring more than 20 hours of runtime) and the data was in a messier format but we were able to scrape awards data for all the artists in our dataset.
 
-#### D) Google Trends
+#### D) Google Trends <a name="trends"></a>
 
 Google Trends analyzes the popularity of top search queries in Google Search across various regions and languages. We use a library to scrape Google Trends and look at the average popularity of an artist three months prior to the release of the song. Unfortunately, Google Trends only contains data following 01/01/2004.
 
-### Some Additional Challenges
+### Some Additional Challenges <a name="challenges"></a>
 
 One of our main challenges was the conception of the original dataset. Our data came from very different sources and each platform had its particularities.
 
@@ -41,7 +59,7 @@ Additionally, for the RIAA data, the string matching for multiple artists was co
 
 Google Trends also places a limit on how many times its data can be accessed every day. Thus, we had to run our process during multiple days so as to capture the entire dataframe.
 
-### Feature Engineering and Train/Test Split
+### Feature Engineering and Train/Test Split <a name="feature"></a>
 
 Thanks to the data scraped from all the various APIs, we created plenty of features that seemed able to capture what makes a song a hit. For instance, we leveraged the Billboard chart to compute the rank obtained by a song during its first appearance. The closer a given song&#39;s rank is to 10 when it first appears, the more likely it is that it will later reach the top 10 (i.e. Appendix 3). We also gathered the number of songs each artists placed in the Hot 100 and Hot 10, to have a proxy for the musician&#39;s popularity (i.e. we could easily imagine that the last song of Beyonce, who has already placed 61 songs in the Hot 100, has great chances to be on this ranking).
 
@@ -53,7 +71,7 @@ Initially, we had over 1230 different labels from Spotify. Using string-matching
 
 Given that a song may take a few weeks to reach the top 10, we have had to delete the data corresponding to the last 6 weeks. This number corresponds to the median number of weeks a song takes to reach the top 10 (it was computed only on the songs which effectively reached the top 10). We used the median to cancel the effect of outliers (i.e. a few songs such as _All I Want for Christmas Is You_ took more than 6000 days to reach the top 10). Thus, by ignoring these rows and allowing for a few weeks for songs to reach the top 10, we make sure that our test set represents more accurately the real distribution of the data.
 
-## II - Models &amp; Results
+## II - Models &amp; Results <a name="model"></a>
 
 An important challenge we have had to deal with is class imbalance. Approximately 94% of the songs that do not rank in the top 10 the first time they enter the Billboard rankings never reach the top 10. By simply selecting that the song will not end up in the top 10 all the time, we would thus be correct 94% of the time (baseline model) but that would not help us find hits before they happen. For our analysis to be impactful, we need to be able to correctly identify future hits. We aim hence to maximize Precision, or the probability that a song is indeed a future hit when we predict that it will be so ().
 
@@ -65,7 +83,7 @@ Logistic regression is a high bias and low variance model. However, other method
 
 Our best model is **Ordinal Regression** with an AUC of **0.66**. We are able to reach a precision  of ~21% using a threshold of 0.75. On the test set, assigning all the songs to the top 10 would have yielded a precision of 6% so our models do provide a significant improvement to the baseline. However, it may not be sufficient to be actionable per se as precision remains relatively low and we are only predicting very few songs of the  top 10. We require additional features and further analysis.
 
-## III - Limitations &amp; Potential Improvements
+## III - Limitations &amp; Potential Improvements <a name="limitations"></a>
 
 As highlighted by Lucas during our presentation, our dependent variable is an ordered ranking and thus depends on the other observations present in the Billboard that week. Rank is thus not independent and identically distributed and would need additional processing so as to be better adjusted for. To account for this, we first explored using an alternative dependent variable (number of sales, number of views…) to reframe the problem. However, given the lack of availability of historical data, we attempted to use the ranking at our advantage and ran an ordinal regression (see Appendix 2). To improve our results in a further analysis, more complex optimization methods might also be used.
 
@@ -77,13 +95,13 @@ More simply, we could also use the genre of the songs to improve our model. We h
 
 
 
-##Conclusion
+## Conclusion <a name="conclusion"></a>
 
 Through our analysis, we have been able to somewhat improve the prediction on the baseline that a song will become a hit (enter the top 10). Nevertheless, our results are not sufficient as of yet to be actionable and guide decision-making. As highlighted in the previous section, we believe that numerous avenues could be explored to improve the analysis, namely handling the ranking nature of our dependent variable or adding additional variables. In addition, while  our results may not yield optimal results to predict Billboard Hits, they may be helpful indicators of a song&#39;s or an artist&#39;s popularity and could contribute to improved decision-making by helping predict alternative metrics (i.e. an artist getting a Grammy Award).
 
-## Appendix
+## Appendix <a name="appendix"></a>
 
-### Appendix 1: Features Tables
+### Appendix 1: Features Tables <a name="appendix1"></a>
 
 | **Feature Name** | **Definition** |
 | --- | --- |
@@ -133,7 +151,7 @@ Through our analysis, we have been able to somewhat improve the prediction on th
 
 
 
-### Appendix 4: Reproducing the Code
+### Appendix 4: Reproducing the Code <a name="appendix4"></a>
 
 1. Follow the instructions and run &quot;ScrapeBillboard.ipnyb&quot; to download the data from Billboard
 2. Follow the instructions and run &quot;ScrapeSpotify.ipynb&quot; to download the data from Spotify and find the internal characteristics of each songs
