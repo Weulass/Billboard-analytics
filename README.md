@@ -3,21 +3,37 @@
 
 
 _**[Introduction](#introduction)**_
+
 _**[I - Data Processing](#data-processing)**_
+
 &nbsp;&nbsp;&nbsp;&nbsp;_**[Data Sources](#data-sources)**_
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**[Billboard](#billboard)**_
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**[Spotify](#spotify)**_
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**[The Recording Industry Association of America (RIAA)](#riaa)**_
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_**[Google Trends](#trends)**_
+
 &nbsp;&nbsp;&nbsp;&nbsp;_**[Some Additional Challenges](#challenges)**_
+
 &nbsp;&nbsp;&nbsp;&nbsp;_**[Feature Engineering and Train/Test Split](#feature)**_
+
 _**[II - Models & Results](#models)**_
+
 _**[III - Limitations & Potential Improvements](#limitations)**_
+
 _**[Conclusion](#conclusion)**_
+
 _**[Appendix](#appendix)**_
+
 _**[Appendix 1: Features Tables](#appendix1)**_
+
 _**[Appendix 2: Model Results](#appendix2)**_
+
 _**[Appendix 3: Visualizations](#appendix3)**_
+
 _**[Appendix 4: Reproducing the Code](#appendix4)**_	
 
 ## Introduction <a name="introduction"></a>
