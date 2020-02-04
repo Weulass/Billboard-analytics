@@ -147,9 +147,52 @@ Through our analysis, we have been able to somewhat improve the prediction on th
 | numberofappearances\_artist\_top10 | Number of songs the author has placed in the Billboard top 10  in the past (before the release of his new song) |
 | top10 | Binary variable whether the song reached the top 10 in the Billboard |
 
-<center> Proportion of songs that reach the top 10 depending on their initial ranking </center>
+<center> 
+
+*Proportion of songs that reach the top 10 depending on their initial ranking* 
+
+</center>
+
+### Appendix 2: Model Results <a name="appendix2"></a>
+
+<div align="center">
+
+![Logistic Regression ROC](Assets/img/logistic_reg_roc.png)
+
+</div>
+
+<div align="center">
+
+![Logistic Regression Bootstrap](assets/img/logistic_reg_bootstrap.png)
+
+</div>
+
+<div align="center">
+
+![Ordinal Regression ROC](Assets/img/ordinal_reg_roc.png)
+
+</div>
+
+<div align="center">
+
+![Ordinal Regression Bootstrap](assets/img/ordinal_reg_bootstrap.png)
+
+</div>
+
+<div align="center">
+
+![Boosting Regression ROC](Assets/img/boosting_roc.png)
+
+</div>
+
+<div align="center">
+
+![Boosting Regression Bootstrap](assets/img/boosting_bootstrap.png)
+
+</div>
 
 
+### Appendix 3: Visualizations <a name="appendix3"></a>
 
 ### Appendix 4: Reproducing the Code <a name="appendix4"></a>
 
