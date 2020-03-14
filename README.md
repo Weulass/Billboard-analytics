@@ -32,9 +32,7 @@ _**[Appendix 1: Features Tables](#appendix1)**_
 
 _**[Appendix 2: Model Results](#appendix2)**_
 
-_**[Appendix 3: Visualizations](#appendix3)**_
-
-_**[Appendix 4: Reproducing the Code](#appendix4)**_	
+_**[Appendix 3: Reproducing the Code](#appendix3)**_	
 
 ## Introduction <a name="introduction"></a>
 
@@ -248,9 +246,7 @@ Through our analysis, we have been able to somewhat improve the prediction on th
 </div>
 
 
-### Appendix 3: Visualizations <a name="appendix3"></a>
-
-### Appendix 4: Reproducing the Code <a name="appendix4"></a>
+### Appendix 3: Reproducing the Code <a name="appendix3"></a>
 
 1. Follow the instructions and run &quot;ScrapeBillboard.ipnyb&quot; to download the data from Billboard
 2. Follow the instructions and run &quot;ScrapeSpotify.ipynb&quot; to download the data from Spotify and find the internal characteristics of each songs
