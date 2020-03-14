@@ -1,4 +1,4 @@
-# Final Project Report - IND ENG 242 - Predicting a Song Performance in the Billboard
+# IND ENG 242 Final Project Report - Predicting a Song Performance in the Billboard
 #### *Ilias Miraoui, Youssef Lazrak, Owen Liu, Sophie Pealat, Jacques-Olivier Weulassagou*
 
 
@@ -219,7 +219,7 @@ Through our analysis, we have been able to somewhat improve the prediction on th
 
 <div align="center">
 
-![Logistic Regression Bootstrap](assets/img/logistic_reg_bootstrap.png)
+![Logistic Regression Bootstrap](Assets/img/logistic_reg_bootstrap.png)
 
 </div>
 
@@ -231,7 +231,7 @@ Through our analysis, we have been able to somewhat improve the prediction on th
 
 <div align="center">
 
-![Ordinal Regression Bootstrap](assets/img/ordinal_reg_bootstrap.png)
+![Ordinal Regression Bootstrap](Assets/img/ordinal_reg_bootstrap.png)
 
 </div>
 
@@ -243,7 +243,7 @@ Through our analysis, we have been able to somewhat improve the prediction on th
 
 <div align="center">
 
-![Boosting Regression Bootstrap](assets/img/boosting_bootstrap.png)
+![Boosting Regression Bootstrap](Assets/img/boosting_bootstrap.png)
 
 </div>
 
